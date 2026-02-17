@@ -17,4 +17,4 @@ class LoginPage(Page):
 
     def click_cont_button(self):
         self.click(*self.CONT_BTN)
-    sleep(6)
+        sleep(6)

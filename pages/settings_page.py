@@ -4,13 +4,18 @@ from time import sleep
 from pages.base_page import Page
 
 class SettingsPage(Page):
-    Settings_BTN= (By.CSS_SELECTOR, "a[href='/settings']")
+    Settings_BTN= (By.CSS_SELECTOR, "a[href='https://soft.reelly.io/settings']")
     PROFILE_SETTING = (By.CSS_SELECTOR, ".name-prifile-setting")
     SETTINGS_OPTIONS = (By.CSS_SELECTOR, ".page-setting-block.w-inline-block")
-    COMPANY_BTN = (By.XPATH, "//a[@href='/buy-plan-company']")
+    COMPANY_BTN = (By.XPATH, "//div[@class='get-free-period menu' and text()='Connect the company']")
+
 
 
     def click_settings(self):
+        sleep(3)
+        settings_element = self.find_element(*self.Settings_BTN)
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", settings_element)
+        sleep(1)
         self.click(*self.Settings_BTN)
 
     def verify_settings_page(self, expected_text):
@@ -25,4 +30,5 @@ class SettingsPage(Page):
             f"Expected {expected_count} options, but got {actual_count}"
 
     def verify_company(self):
-        self.click(*self.COMPANY_BTN)
+        company_element = self.find_element(*self.COMPANY_BTN)
+        assert company_element.is_displayed(), "Connect the company button is not visible"
