@@ -1,5 +1,6 @@
-Feature: Test Scenarios for Search functionality
+Feature: Test Scenarios for Search
 
+@smoke
   Scenario: User can search for a product
     Given Open Google page
     When Input Car into search field
