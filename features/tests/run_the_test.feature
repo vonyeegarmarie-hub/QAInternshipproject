@@ -9,3 +9,12 @@ Feature: run the test
     And Verify there are 18 options for the settings
     And Verify the “connect the company” button is available
 
+
+  Scenario: On Mobile User can go to settings and see the right number of UI elements
+    Given Open the main page https://soft.reelly.io
+    When Log in to the page
+    And Click on Market Offers Button
+    And Click on the Menu button
+    Then Verify the right page opens
+    And Verify there are 18 options for the settings
+    And Verify the “connect the company” button is available

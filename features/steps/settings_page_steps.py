@@ -7,6 +7,16 @@ def click_settings(context):
     context.app.settings_page.click_settings()
     sleep(5)
 
+@when('Click on Market Offers Button')
+def click_market_offers(context):
+    context.app.settings_page.click_market_offers()
+
+
+@when('Click on the Menu button')
+def click_menu(context):
+    context.app.settings_page.click_menu()
+
+
 @then('Verify the right page opens')
 def verify_settings_page(context):
     context.app.settings_page.verify_settings_page('test+marie+careerist')
